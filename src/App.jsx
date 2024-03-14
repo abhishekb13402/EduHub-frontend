@@ -8,6 +8,8 @@ import Carousel from './components/Pages/Carousel';
 import Course from './components/Pages/Course';
 import Footer from './components/Pages/Footer';
 import About from './components/Pages/About';
+import Login from './components/Pages/Login';
+import LoginSignup from './components/LoginSignup/LoginSignup';
 
 const App = () => {
   return (
@@ -23,12 +25,13 @@ const App = () => {
         </Routes>
       </BrowserRouter> */}
 
-      <Navbar />
-      <Carousel />
+      {/* <Navbar />
+     <Carousel />
       <Home/>
       <About/>
-      <Course />
-      <Footer />
+      <Course />  */}
+      <LoginSignup/>
+      {/* <Footer /> */}
 
     </>
   )
