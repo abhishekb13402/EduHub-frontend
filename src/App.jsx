@@ -32,7 +32,7 @@ const App = () => {
       {/* <Home /> */}
       {/* <Admin/> */}
       {/* <CoursesDisplay/> */}
-      <AdminMain/>
+      <Admin/>
     </>
   )
 }
