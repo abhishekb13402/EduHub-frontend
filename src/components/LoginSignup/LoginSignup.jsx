@@ -3,7 +3,7 @@ import './loginsignup.css'
 
 import user_icon from '../Assets/person.png'
 import email_icon from '../Assets/email.png'
-import passeord_icon from '../Assets/password.png'
+import password_icon from '../Assets/password.png'
 
 
 const LoginSignup = () => {
@@ -19,16 +19,16 @@ const LoginSignup = () => {
 
             <div className="inputs">
                 {action === "Login" ? <div></div> : <div className="input">
-                    <img src={user_icon} alt='' />
+                    <img src={user_icon} alt='user_icon' />
                     <input type='text' placeholder='Name' />
                 </div>}
 
                 <div className="input">
-                    <img src={email_icon} alt='' />
+                    <img src={email_icon} alt='email_icon' />
                     <input type='email' placeholder='Email Id' />
                 </div>
                 <div className="input">
-                    <img src={passeord_icon} alt='' />
+                    <img src={password_icon} alt='password_icon' />
                     <input type='password' placeholder='Password' />
                 </div>
             </div>

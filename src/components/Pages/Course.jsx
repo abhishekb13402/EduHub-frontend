@@ -12,6 +12,7 @@ const Course = () => {
                         <div className="card-content">
                             <h1>Student Feedback System, Website</h1>
                             <p>It is a website built using HTML, CSS, JavaScript, PHP, Sql.</p>
+                <button type="button" className="btn btn-outline-primary btn-sm">Enroll</button>
                             {/* <!-- <a href="" className="card-button">Github Link</a> --> */}
                         </div>
                     </div>
@@ -21,6 +22,7 @@ const Course = () => {
                         <div className="card-content">
                             <h1>Student Feedback System, Website</h1>
                             <p>It is a website built using HTML, CSS, JavaScript, PHP, Sql.</p>
+                <button type="button" className="btn btn-outline-primary btn-sm">Enroll</button>
                             {/* <!-- <a href="" className="card-button">Github Link</a> --> */}
                         </div>
                     </div>
@@ -30,36 +32,12 @@ const Course = () => {
                         <div className="card-content">
                             <h1>Student Feedback System, Website</h1>
                             <p>It is a website built using HTML, CSS, JavaScript, PHP, Sql.</p>
+                <button type="button" className="btn btn-outline-primary btn-sm">Enroll</button>
                             {/* <!-- <a href="" className="card-button">Github Link</a> --> */}
                         </div>
                     </div>
 
-                    <div className="card">
-                        <img src="/public_img/carouselimg1.jpg" />
-                        <div className="card-content">
-                            <h1>Student Feedback System, Website</h1>
-                            <p>It is a website built using HTML, CSS, JavaScript, PHP, Sql.</p>
-                            {/* <!-- <a href="" className="card-button">Github Link</a> --> */}
-                        </div>
-                    </div>
 
-                    <div className="card">
-                        <img src="/public_img/carouselimg1.jpg" />
-                        <div className="card-content">
-                            <h1>Student Feedback System, Website</h1>
-                            <p>It is a website built using HTML, CSS, JavaScript, PHP, Sql.</p>
-                            {/* <!-- <a href="" className="card-button">Github Link</a> --> */}
-                        </div>
-                    </div>
-
-                    <div className="card">
-                        <img src="/public_img/carouselimg1.jpg" />
-                        <div className="card-content">
-                            <h1>Student Feedback System, Website</h1>
-                            <p>It is a website built using HTML, CSS, JavaScript, PHP, Sql.</p>
-                            {/* <!-- <a href="" className="card-button">Github Link</a> --> */}
-                        </div>
-                    </div>
 
                     <span>
                         <br /><br />

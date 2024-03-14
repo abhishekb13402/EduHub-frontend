@@ -1,38 +1,38 @@
 import React from 'react'
-
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-import Navbar from './components/Navbar/Navbar';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './components/Pages/Home';
-import Carousel from './components/Pages/Carousel';
 import Course from './components/Pages/Course';
-import Footer from './components/Pages/Footer';
-import About from './components/Pages/About';
 import Login from './components/Pages/Login';
-import LoginSignup from './components/LoginSignup/LoginSignup';
+import About from './components/Pages/About';
+import Admin from './components/Pages/Admin';
+import PageNotFound from './components/Pages/PageNotFound';
+import CoursesDisplay from './components/Courses/CoursesDisplay';
+import AdminMain from './components/Admin/AdminMain';
 
 const App = () => {
+
+  // const NotFound = () => {
+  //   return <>Not Found</>
+  // }
   return (
     <>
 
       {/* <BrowserRouter>
         <Routes>
-          <Route path='./component/Pages/Home' element={<Home />} />
-          <Route path='./component/Pages/About' element={<About />} />
-          <Route path='./component/Pages/About' element={<Course />} />
-          <Route path='./component/Pages/Login' element={<Login />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/course' element={<Course />} />
 
+          <Route path='/login' element={<Login />} />
+          <Route path='/admin' element={<Admin/>} />
+          <Route path='*' element={<PageNotFound/>} />
         </Routes>
       </BrowserRouter> */}
 
-      {/* <Navbar />
-     <Carousel />
-      <Home/>
-      <About/>
-      <Course />  */}
-      <LoginSignup/>
-      {/* <Footer /> */}
-
+      {/* <Home /> */}
+      {/* <Admin/> */}
+      {/* <CoursesDisplay/> */}
+      <AdminMain/>
     </>
   )
 }
