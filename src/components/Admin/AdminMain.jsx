@@ -1,22 +1,16 @@
 // import React from 'react'
 
 import Content from "./Content"
-import Sidebar from "./Sidebar"
-import './Adminstyle.css';
+import AdminNav from "./AdminNav"
 
 const AdminMain = () => {
     return (
         <>
-            <div className="maincontent">
-
-
                 <div className="container">
-                    <Sidebar />
-                </div>
-                <div className="content">
+                    <AdminNav />
+
                     <Content />
                 </div>
-            </div>
         </>
     )
 }
