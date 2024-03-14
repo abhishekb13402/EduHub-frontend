@@ -1,0 +1,22 @@
+
+.LanguagetagsComponent{
+text-align: center;
+}
+
+.searchsection{
+    display: flex;
+    margin-top: 25px;
+    gap: 10px;
+}
+
+.searchsection input{
+    width: 750px;
+}
+
+.Coursecontainer{
+    margin-top: 25px;
+}
+
+/* .tagscollection span{
+    gap: 20px;
+} */

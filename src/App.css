@@ -66,8 +66,20 @@
 }
 
 /* footer */
+
 .custom-bg-color {
 	background-color: rgb(204, 222, 255);
 	color: black; /* optional, to set text color */
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
   }
   
+
+  /* pagenotfound */
+
+.pagenotfound{
+	text-align: center;
+	margin-top: 100px;
+}
