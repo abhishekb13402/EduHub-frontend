@@ -13,7 +13,7 @@ const Home = () => {
             <Navbar />
             <Carousel />
 
-            <div className='container'>
+            <div className='container' id='home'>
                 <div className="homecontent">
                     <h3>🌈Welcome to EduHub: Empowering Your Learning Journey!📚</h3>
 

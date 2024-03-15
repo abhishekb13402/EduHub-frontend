@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
     return (
-        <div className="container"><br/><br/>
+        <div className="container" id='about'><br/><br/>
             <h2>About EduHub</h2>
             <p>
                 Welcome to EduHub – 🌟 your go-to platform for accessible and innovative education!

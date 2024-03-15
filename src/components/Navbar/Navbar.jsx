@@ -16,16 +16,16 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">Home🏡</a>
+              <a className="nav-link active" aria-current="page" href="#home">Home🏡</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/about">Aboutℹ️</a>
+              <a className="nav-link active" aria-current="page" href="#about">Aboutℹ️</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/course">Courses📚</a>
+              <a className="nav-link active" aria-current="page" href="#course">Courses📚</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/login">Login🔐</a>
+              <a className="nav-link active" aria-current="page" href="#login">Login🔐</a>
             </li>
             <li className="nav-item">
               <form className="d-flex" role="search">
@@ -33,9 +33,9 @@ const Navbar = () => {
                 <button className="btn btn-outline-success" type="submit">Search</button>
               </form>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/admin">Admin🔐</a>
-            </li>
+            </li> */}
             
 
           </ul>

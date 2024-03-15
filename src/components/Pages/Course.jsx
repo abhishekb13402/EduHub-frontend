@@ -4,7 +4,7 @@ import '../../App.css';
 const Course = () => {
     return (
         <>
-            <div className="container">
+            <div className="container" id='course'>
 
                 <div className="card-container">
                     <div className="card">
