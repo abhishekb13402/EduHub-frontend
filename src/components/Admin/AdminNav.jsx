@@ -1,9 +1,67 @@
-import React from 'react'
+// import React from 'react'
+
+import React, { useState } from 'react';
+import AdminUser from './Adminpages/AdminUser';
+import PageNotFound from '../Pages/PageNotFound';
+import AdminCourse from './Adminpages/AdminCourse';
+import AdminResult from './Adminpages/AdminResult';
+import AdminModule from './Adminpages/AdminModule';
+import AdminEnrollment from './Adminpages/AdminEnrollment';
+import AdminCertificate from './Adminpages/AdminCertificate';
+import AdminAssessmentQ from './Adminpages/AdminAssessmentQ';
 
 const AdminNav = () => {
+    const [activeComponent, setActiveComponent] = useState(null);
+
+    const handleUserClick = () => {
+        setActiveComponent('User');
+    };
+    const handleCourseClick = () => {
+        setActiveComponent('Course');
+    };
+    const handleModuleClick = () => {
+        setActiveComponent('Module');
+    };
+    const handleEnrollmentClick = () => {
+        setActiveComponent('Enrollment');
+    };
+    const handleAssQClick = () => {
+        setActiveComponent('AssessmentQuestion');
+    };
+    const handleResultClick = () => {
+        setActiveComponent('Result');
+    };
+    const handleCertificateClick = () => {
+        setActiveComponent('Certificate');
+    };
+
+    const renderComponent = () => {
+        switch (activeComponent) {
+            case 'User':
+                return <AdminUser />;
+            case 'Course':
+                return <AdminCourse />;
+            case 'Module':
+                return <AdminModule />
+            case 'Enrollment':
+                return <AdminEnrollment />;
+            case 'AssessmentQuestion':
+                return <AdminAssessmentQ />;
+            case 'Course':
+                return <AdminCourse />;
+            case 'Result':
+                return <AdminResult />;
+            case 'Certificate':
+                return <AdminCertificate />;
+            default:
+                return null;
+        }
+    };
+
     return (
         <>
-            <nav className="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
+            {/* old */}
+            {/* <nav className="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
                 <div className="container-fluid">
                     <a className="navbar-brand pe-3" href="#">EduHub Admin</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +139,48 @@ const AdminNav = () => {
 
                     </div>
                 </div>
+            </nav> */}
+
+            {/* new */}
+
+            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <div className="container-fluid">
+                    <a className="navbar-brand" href="/admin">Admin</a>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="#" onClick={handleUserClick}>User</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={handleCourseClick}>Course</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={handleModuleClick}>Module</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={handleEnrollmentClick}>Enrollment</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={handleAssQClick}>Assessment Question</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={handleResultClick}>Result</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={handleCertificateClick}>Certificate</a>
+                            </li>
+                            {/* <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={handleAdminLogout}>Logout</a>
+                            </li> */}
+
+                        </ul>
+                    </div>
+                </div>
             </nav>
+            {renderComponent()}
         </>
     )
 }

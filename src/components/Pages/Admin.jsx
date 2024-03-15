@@ -1,13 +1,13 @@
 // import React from 'react'
 
-import AdminMain from "../Admin/AdminMain"
+import AdminNav from "../Admin/AdminNav"
 import Footer from "./Footer"
 
 const Admin = () => {
     return (
         <>
-            <AdminMain/>
-
+            <AdminNav/>
+        
             <Footer />
 
         </>
