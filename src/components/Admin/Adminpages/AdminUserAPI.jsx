@@ -17,16 +17,16 @@ const AdminUserAPI = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const[adduname,setuname]=useState('')
-    const[addupassword,setupassword]=useState('')
-    const[addufullname,setufullname]=useState('')
-    const[adduemail,setuemail]=useState('')
+    const [adduname, setuname] = useState('')
+    const [addupassword, setupassword] = useState('')
+    const [addufullname, setufullname] = useState('')
+    const [adduemail, setuemail] = useState('')
 
-    const[editeId,setediteId]=useState('')
-    const[editeuname,setediteuname]=useState('')
-    const[editeupassword,setediteupassword]=useState('')
-    const[editeufullname,setediteufullname]=useState('')
-    const[editeuemail,setediteuemail]=useState('')
+    const [editeId, setediteId] = useState('')
+    const [editeuname, setediteuname] = useState('')
+    const [editeupassword, setediteupassword] = useState('')
+    const [editeufullname, setediteufullname] = useState('')
+    const [editeuemail, setediteuemail] = useState('')
 
 
     const userdata = [
@@ -53,24 +53,23 @@ const AdminUserAPI = () => {
         }
 
     ]
-
     const [data, setData] = useState([]);
     useEffect(() => {
         getData();
+        // setData(userdata)
         console.log(getData, "getdata");
     }, [])
+    
+    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFiaGkiLCJleHAiOjE3MTA4NDc3ODgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NzI0NCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NzI0NCJ9.hCjtbW3SasqDF1hbic6sBiOqYSwoI_nfKlCwVqEkUf0'
 
-    const getData = () =>{
-        axios.get('https://localhost:7244/api/RegisterUser')
-        .then((result)=>{
-            setData(result.data)
-        }
-        )
-        
-        .catch((error)=>{
-            console.log(error)
-        })
-        console.log(data,"result");
+    const getData = () => {
+        axios.get('http://localhost:5146/api/RegisterUser', { headers: { 'Authorization': `Bearer ${accessToken}` } })
+            .then((result) => {
+                setData(result.data)
+            }).catch((error) => {
+                console.log(error)
+            })
+        console.log(data, "result");
     }
 
     const handleEdit = (id) => {
@@ -93,27 +92,27 @@ const AdminUserAPI = () => {
             <Container>
                 <Row>
                     <Col>
-                        <input type='text' className='form-control' onClick={(e) => setuname(e.target.value)} value={adduname} placeholder='Update User Name'></input>
+                        <input type='text' className='form-control' onClick={(e) => setuname(e.target.value)} value={adduname} placeholder='Add User Name'></input>
                     </Col>
                 </Row><br />
                 <Row>
                     <Col>
-                        <input type='text' className='form-control' onClick={(e) => setupassword(e.target.value)} value={addupassword} placeholder='Update User Password'></input>
+                        <input type='text' className='form-control' onClick={(e) => setupassword(e.target.value)} value={addupassword} placeholder='Add User Password'></input>
                     </Col>
                 </Row><br />
                 <Row>
                     <Col>
-                        <input type='text' className='form-control' onClick={(e) => setufullname(e.target.value)} value={addufullname} placeholder='Update Full Name'></input>
+                        <input type='text' className='form-control' onClick={(e) => setufullname(e.target.value)} value={addufullname} placeholder='Add Full Name'></input>
                     </Col>
                 </Row><br />
                 <Row>
                     <Col>
-                        <input type='text' className='form-control'onClick={(e) => setuemail(e.target.value)}  value={adduemail} placeholder='Update User Email'></input>
+                        <input type='text' className='form-control' onClick={(e) => setuemail(e.target.value)} value={adduemail} placeholder='Add User Email'></input>
                     </Col>
-                </Row><br/>
+                </Row><br />
                 <Row>
                     <Col>
-                    <Button variant="outline-primary">Add User</Button>
+                        <Button variant="outline-primary">Add User</Button>
                     </Col>
                 </Row>
                 <br />
@@ -126,10 +125,8 @@ const AdminUserAPI = () => {
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
-                        <th >#</th>
                         <th >Id</th>
                         <th >User Name</th>
-                        <th >User Password</th>
                         <th >FullName</th>
                         <th >UserEmail</th>
                         <th >Actions</th>
@@ -141,11 +138,9 @@ const AdminUserAPI = () => {
                             return (
                                 <tr key={index}>
                                     <td>{index + 1}</td>
-                                    <td>{item.Id}</td>
-                                    <td>{item.UserName}</td>
-                                    <td>{item.UserPassword}</td>
-                                    <td>{item.FullName}</td>
-                                    <td>{item.UserEmail}</td>
+                                    <td>{item.userName}</td>
+                                    <td>{item.fullName}</td>
+                                    <td>{item.userEmail}</td>
                                     <td colSpan={2}>
                                         <Button variant="outline-primary" onClick={() => handleEdit(item.Id)}>Edit</Button> &nbsp;
                                         <Button variant="outline-danger" onClick={() => handleDelete(item.Id)}>Delete</Button>
@@ -169,27 +164,27 @@ const AdminUserAPI = () => {
                     <Modal.Title>Update User</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <Row>
-                    <Col>
-                        <input type='text' className='form-control' onClick={(e) => setediteuname(e.target.value)} value={editeuname} placeholder='Update User Name'></input>
-                    </Col>
-                </Row><br />
-                <Row>
-                    <Col>
-                        <input type='text' className='form-control' onClick={(e) => setediteupassword(e.target.value)} value={editeupassword} placeholder='Update User Password'></input>
-                    </Col>
-                </Row><br />
-                <Row>
-                    <Col>
-                        <input type='text' className='form-control' onClick={(e) => setediteufullname(e.target.value)} value={editeufullname} placeholder='Update Full Name'></input>
-                    </Col>
-                </Row><br />
-                <Row>
-                    <Col>
-                        <input type='text' className='form-control'onClick={(e) => setediteuemail(e.target.value)}  value={editeuemail} placeholder='Update User Email'></input>
-                    </Col>
-                </Row><br/>
-               <br />
+                    <Row>
+                        <Col>
+                            <input type='text' className='form-control' onClick={(e) => setediteuname(e.target.value)} value={editeuname} placeholder='Update User Name'></input>
+                        </Col>
+                    </Row><br />
+                    <Row>
+                        <Col>
+                            <input type='text' className='form-control' onClick={(e) => setediteupassword(e.target.value)} value={editeupassword} placeholder='Update User Password'></input>
+                        </Col>
+                    </Row><br />
+                    <Row>
+                        <Col>
+                            <input type='text' className='form-control' onClick={(e) => setediteufullname(e.target.value)} value={editeufullname} placeholder='Update Full Name'></input>
+                        </Col>
+                    </Row><br />
+                    <Row>
+                        <Col>
+                            <input type='text' className='form-control' onClick={(e) => setediteuemail(e.target.value)} value={editeuemail} placeholder='Update User Email'></input>
+                        </Col>
+                    </Row><br />
+                    <br />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
