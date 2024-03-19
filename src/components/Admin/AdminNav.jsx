@@ -9,6 +9,7 @@ import AdminModule from './Adminpages/AdminModule';
 import AdminEnrollment from './Adminpages/AdminEnrollment';
 import AdminCertificate from './Adminpages/AdminCertificate';
 import AdminAssessmentQ from './Adminpages/AdminAssessmentQ';
+import AdminUserAPI from './Adminpages/AdminUserAPI';
 
 const AdminNav = () => {
     const [activeComponent, setActiveComponent] = useState(null);
@@ -38,7 +39,7 @@ const AdminNav = () => {
     const renderComponent = () => {
         switch (activeComponent) {
             case 'User':
-                return <AdminUser />;
+                return <AdminUserAPI />;
             case 'Course':
                 return <AdminCourse />;
             case 'Module':
@@ -47,8 +48,6 @@ const AdminNav = () => {
                 return <AdminEnrollment />;
             case 'AssessmentQuestion':
                 return <AdminAssessmentQ />;
-            case 'Course':
-                return <AdminCourse />;
             case 'Result':
                 return <AdminResult />;
             case 'Certificate':
