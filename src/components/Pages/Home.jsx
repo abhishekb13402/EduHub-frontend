@@ -24,7 +24,7 @@ const Home = () => {
                     </h5>   <br /><br />
                     <br /><br />
                     <span>
-                        <a href="#" className="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" style={{ fontSize: '1.2em', fontWeight: 'bold', color: 'green' }}>🖋️ Sign Up</a>
+                        <a href="#" className="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" style={{ fontSize: '1.2em', fontWeight: 'bold', color: 'green' }}>🖋️ Login</a>
                         <span className="mx-2">|</span>
                         <a href="#" className="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" style={{ fontSize: '1.2em', fontWeight: 'bold', color: 'blue' }}>Explore Courses 🔍</a>
                     </span>

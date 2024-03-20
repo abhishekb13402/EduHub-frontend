@@ -63,8 +63,7 @@ const AdminUserAPI = () => {
         // console.log(getData, "getdata");
     }, [])
 
-    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFiaGkiLCJleHAiOjE3MTA5MzQ3MzUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NzI0NCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NzI0NCJ9.KcdJ3njmaQ0XnJNpw0IRgBkxHdUNfC27MCEho74nQps'
-
+    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFiaGlAZ21haWwuY29tIiwiZXhwIjoxNzExMDE4OTk3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjcyNDQiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjcyNDQifQ.FWwXF7yxVzbcyN2Qlw0mHmx0TGCmiY6QtJeIy0nyZjI'
     const getData = () => {
         axios.get('https://localhost:7244/api/RegisterUser', { headers: { 'Authorization': `Bearer ${accessToken}` } })
             .then((result) => {

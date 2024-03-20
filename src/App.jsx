@@ -6,6 +6,7 @@ import Admin from './components/Pages/Admin';
 import AdminUser from './components/Admin/Adminpages/AdminUser';
 
 import PageNotFound from './components/Pages/PageNotFound';
+import CoursesDisplay from './components/Courses/CoursesDisplay';
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
 
           <Route path='/admin' element={<Admin />} />
           {/* <Route path='/adminuser' element={<AdminUser />} /> */}
+          <Route path='/coursesDisplay' element={<CoursesDisplay />} />
 
           <Route path='*' element={<PageNotFound />} />
         </Routes>

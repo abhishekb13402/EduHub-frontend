@@ -150,7 +150,7 @@ const AdminNav = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav">
-                            <li className="nav-item">
+                            <li className="nav-item" >
                                 <a className="nav-link active" aria-current="page" href="#" onClick={handleUserClick}>User</a>
                             </li>
                             <li className="nav-item">
