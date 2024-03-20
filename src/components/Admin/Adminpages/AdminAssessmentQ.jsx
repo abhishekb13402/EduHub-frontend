@@ -21,6 +21,19 @@ const AdminAssessmentQ = () => {
   // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
 
+  // const [addCourseName, setCourseName] = useState('')
+  // const [addCourseDesc, setCourseDesc] = useState('')
+
+  // const [editCourseId, seteditCourseId] = useState('')
+  // const [editCourseName, setediteCourseName] = useState('')
+  // const [editCourseDesc, seteditCourseDesc] = useState('')
+
+
+  // const [show, setShow] = useState(false);
+
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+
   // const [adduname, setuname] = useState('')
   // const [addupassword, setupassword] = useState('')
   // const [addufullname, setufullname] = useState('')
@@ -105,16 +118,16 @@ const AdminAssessmentQ = () => {
 
 
 const [data, setData] = useState([]);
-const [searchCourseId, setSearchCourseId] = useState('');
-const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFiaGkiLCJleHAiOjE3MTA5MzQ3MzUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NzI0NCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NzI0NCJ9.KcdJ3njmaQ0XnJNpw0IRgBkxHdUNfC27MCEho74nQps';
+const [searchCourseName, setsearchCourseName] = useState('');
+const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFiaGlAZ21haWwuY29tIiwiZXhwIjoxNzExMDE4OTk3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjcyNDQiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjcyNDQifQ.FWwXF7yxVzbcyN2Qlw0mHmx0TGCmiY6QtJeIy0nyZjI'
 
 useEffect(() => {
   handleSearch();
 }, []);
 
 const handleSearch = () => {
-  if (searchCourseId.trim() === '') {
-    // Fetch all assessment questions if searchCourseId is empty
+  if (searchCourseName.trim() === '') {
+    // Fetch all assessment questions if searchCourseName is empty
     axios.get(`https://localhost:7244/api/AssessmentQuestion`, { headers: { 'Authorization': `Bearer ${accessToken}` } })
       .then((response) => {
         setData(response.data);
@@ -124,12 +137,12 @@ const handleSearch = () => {
       });
   } else {
     // Fetch assessment questions by course ID
-    axios.get(`https://localhost:7244/api/AssessmentQuestion/${searchCourseId}`, { headers: { 'Authorization': `Bearer ${accessToken}` } })
+    axios.get(`https://localhost:7244/api/AssessmentQuestion/${searchCourseName}`, { headers: { 'Authorization': `Bearer ${accessToken}` } })
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
-        console.error(`Error fetching assessment questions for course ID ${searchCourseId}:`, error);
+        console.error(`Error fetching assessment questions for course ID ${searchCourseName}:`, error);
       });
   }
 };
@@ -139,8 +152,31 @@ return (
   <>
     <div className="container">
       <br /><br />
+       {/* <Container>
+          
+          <Row>
+            <Col>
+              <input type='text' className='form-control' onChange={(e) => setCourseName(e.target.value)} value={addCourseName} placeholder='Add Course Name'></input>
+            </Col>
+          </Row><br />
+
+          <Row>
+            <Col>
+              <input type='text' className='form-control' onChange={(e) => setCourseDesc(e.target.value)} value={addCourseDesc} placeholder='Course Description'></input>
+            </Col>
+          </Row><br />
+
+          <Row>
+            <Col>
+              <Button variant="outline-primary" onClick={() => handleSave(accessToken)}>Add Course</Button>
+            </Col>
+          </Row>
+          <br />
+        </Container> */}
+        <br />
+        <br />
       <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search Assessment Questions By Course Id" aria-label="Search" value={searchCourseId} onChange={(e) => setSearchCourseId(e.target.value)} />
+        <input className="form-control me-2" type="search" placeholder="Search Assessment Questions By Course Name" aria-label="Search" value={searchCourseName} onChange={(e) => setsearchCourseName(e.target.value)} />
         <button className="btn btn-outline-success" type="button" onClick={handleSearch}>Search</button>
       </form>
       <br /> <br />
@@ -258,3 +294,6 @@ export default AdminAssessmentQ;
 // }
 
 // export default AdminAssessmentQ
+
+
+

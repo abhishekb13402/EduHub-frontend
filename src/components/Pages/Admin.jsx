@@ -7,7 +7,6 @@ const Admin = () => {
     return (
         <>
             <AdminNav/>
-        
             <Footer />
 
         </>

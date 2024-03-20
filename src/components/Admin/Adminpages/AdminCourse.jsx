@@ -53,8 +53,7 @@ const AdminCourse = () => {
     // console.log(getData, "getdata");
   }, [])
 
-  const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFiaGkiLCJleHAiOjE3MTA5MzQ3MzUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NzI0NCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NzI0NCJ9.KcdJ3njmaQ0XnJNpw0IRgBkxHdUNfC27MCEho74nQps'
-
+  const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFiaGlAZ21haWwuY29tIiwiZXhwIjoxNzExMDE4OTk3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjcyNDQiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjcyNDQifQ.FWwXF7yxVzbcyN2Qlw0mHmx0TGCmiY6QtJeIy0nyZjI'
   const getData = () => {
     axios.get('https://localhost:7244/api/Course', { headers: { 'Authorization': `Bearer ${accessToken}` } })
       .then((result) => {
@@ -68,43 +67,50 @@ const AdminCourse = () => {
   const handleEdit = (id, accessToken) => {
     alert(id);
     handleShow();
-    // axios.get(`https://localhost:7244/api/Course${id}`, { headers: { 'Authorization': `Bearer ${accessToken}` } })
-    //   .then((result) => {
-    //     const courseData = result.data;
-    //     setediteCourseName(courseData.courseName);
-    //     seteditCourseDesc(courseData.description);
-    //     setediteId(id);
-    //     console.log(result.data, "result");
+    axios.get(`https://localhost:7244/api/Course/${id}`, { headers: { 'Authorization': `Bearer ${accessToken}` } })
+      .then((result) => {
+        const courseData = result.data;
+        setediteCourseName(courseData.courseName);
+        seteditCourseDesc(courseData.description);
+        seteditCourseId(id);///change
+        console.log(result.data, "result");
 
-    //   }).catch((error) => {
-    //     console.log(error)
-    //   });
+      }).catch((error) => {
+        console.log(error)
+      });
   };
 
   const handleUpdate = () => {
-    // const url = `https://localhost:7244/api/Course`;
-    // const data = {
-    //   CourseId: editCourseId,
-    //   CourseName: editCourseName,
-    //   Description: editCourseDesc
-   
-    // };
-    // const config = {
-    //   headers: { 'Authorization': `Bearer ${accessToken}` }
-    // };
-    // console.log("data", data);
+    if (!editCourseId) {
+      console.error('CourseId is required for updating');
+      return;
+    }
 
-    // axios.put(url, data, config)
-    //   .then((response) => {
-    //     handleClose();
-    //     getData();
-    //     clear();
-    //     toast.success('User has been updated successfully');
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error updating user:', error);
-    //     toast.error('Failed to update user. Please try again later.');
-    //   });
+    const url = `https://localhost:7244/api/Course/`;
+    const data = {
+      CourseId: editCourseId,//CourseId is converted to an integer
+      CourseName: editCourseName,
+      Description: editCourseDesc
+   
+    };
+    console.log(data,"data");
+    const config = {
+      headers: { 'Authorization': `Bearer ${accessToken}` }
+    };
+    console.log("data", data);
+
+    axios.put(url, data, config)
+      .then((response) => {
+        handleClose();
+        getData();
+        clear();
+      console.log(response,"response");
+      toast.success('Course has been updated successfully');
+      })
+      .catch((error) => {
+        console.error('Error updating course:', error);
+        toast.error('Failed to update Course. Please try again later.');
+      });
   }
 
   const handleDelete = (id) => {
@@ -167,6 +173,7 @@ const AdminCourse = () => {
         <h1>Course Details</h1>
         <ToastContainer />
         <Container>
+          
           <Row>
             <Col>
               <input type='text' className='form-control' onChange={(e) => setCourseName(e.target.value)} value={addCourseName} placeholder='Add Course Name'></input>
@@ -210,7 +217,7 @@ const AdminCourse = () => {
                     <td>{item.courseName}</td>
                     <td>{item.description}</td>
                     <td colSpan={2}>
-                      <Button variant="outline-primary" onClick={() => handleEdit(item.courseName, accessToken)}>Edit</Button> &nbsp;
+                      <Button variant="outline-primary" onClick={() => handleEdit(item.courseId, accessToken)}>Edit</Button> &nbsp;
                       <Button variant="outline-danger" onClick={() => handleDelete(item.courseId, accessToken)}>Delete</Button>
                     </td>
                   </tr>
@@ -260,3 +267,16 @@ const AdminCourse = () => {
 }
 
 export default AdminCourse
+
+
+
+
+// QuestionId
+// CourseId
+// CourseName
+// QuestionText
+// CorrectAns
+// OptA
+// OptB
+// OptC
+// OptD
