@@ -53,7 +53,7 @@ const AdminCourse = () => {
     // console.log(getData, "getdata");
   }, [])
 
-  const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFiaGlAZ21haWwuY29tIiwiZXhwIjoxNzExMDE4OTk3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjcyNDQiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjcyNDQifQ.FWwXF7yxVzbcyN2Qlw0mHmx0TGCmiY6QtJeIy0nyZjI'
+  const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFkbWluQGdtYWlsLmNvbSIsImV4cCI6MTcxMTEwNjU5NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo3MjQ0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo3MjQ0In0.7X47gTB0AAt92RW382TV_hL2PTfTf5K41RgMj1v1tQY'
   const getData = () => {
     axios.get('https://localhost:7244/api/Course', { headers: { 'Authorization': `Bearer ${accessToken}` } })
       .then((result) => {
@@ -270,13 +270,10 @@ export default AdminCourse
 
 
 
-
-// QuestionId
-// CourseId
-// CourseName
-// QuestionText
-// CorrectAns
-// OptA
-// OptB
-// OptC
-// OptD
+// courseId
+// questionText
+// correctAns
+// optA
+// optB
+// optC
+// optD
