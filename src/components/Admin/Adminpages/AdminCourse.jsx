@@ -14,6 +14,9 @@ import Container from 'react-bootstrap/Container';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { accessToken } from '../../../Constant'; // Import the access token
+
+
 const AdminCourse = () => {
 
   const [show, setShow] = useState(false);
@@ -28,24 +31,24 @@ const AdminCourse = () => {
   const [editCourseName, setediteCourseName] = useState('')
   const [editCourseDesc, seteditCourseDesc] = useState('')
 
-  const userdata = [
-    {
-      CourseId: 1,
-      CourseName: 'C-sharp',
-      Description: 'basics of c#',
-    },
-    {
-      CourseId: 2,
-      CourseName: 'C',
-      Description: 'basics of C',
-    },
-    {
-      CourseId: 3,
-      CourseName: 'dot net',
-      Description: 'basics of dot net',
-    },
+  // const userdata = [
+  //   {
+  //     CourseId: 1,
+  //     CourseName: 'C-sharp',
+  //     Description: 'basics of c#',
+  //   },
+  //   {
+  //     CourseId: 2,
+  //     CourseName: 'C',
+  //     Description: 'basics of C',
+  //   },
+  //   {
+  //     CourseId: 3,
+  //     CourseName: 'dot net',
+  //     Description: 'basics of dot net',
+  //   },
 
-  ]
+  // ]
   const [data, setData] = useState([]);
   useEffect(() => {
     getData();
@@ -53,7 +56,7 @@ const AdminCourse = () => {
     // console.log(getData, "getdata");
   }, [])
 
-  const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFkbWluQGdtYWlsLmNvbSIsImV4cCI6MTcxMTEwNjU5NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo3MjQ0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo3MjQ0In0.7X47gTB0AAt92RW382TV_hL2PTfTf5K41RgMj1v1tQY'
+  // const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFkbWluQGdtYWlsLmNvbSIsImV4cCI6MTcxMTEwNjU5NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo3MjQ0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo3MjQ0In0.7X47gTB0AAt92RW382TV_hL2PTfTf5K41RgMj1v1tQY'
   const getData = () => {
     axios.get('https://localhost:7244/api/Course', { headers: { 'Authorization': `Bearer ${accessToken}` } })
       .then((result) => {
@@ -205,6 +208,7 @@ const AdminCourse = () => {
               <th>ID</th>
               <th >Course Name</th>
               <th >Course Description</th>
+              <th >Actions</th>
             </tr>
           </thead>
           <tbody>
