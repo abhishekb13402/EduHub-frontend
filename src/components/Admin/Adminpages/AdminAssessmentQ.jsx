@@ -16,10 +16,20 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const AdminAssessmentQ = () => {
 
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+
+  const handleAddClose = () => setShowAddModal(false);
+  const handleAddShow = () => setShowAddModal(true);
+
+  const handleEditClose = () => setShowEditModal(false);
+  const handleEditShow = () => setShowEditModal(true);
+
 
   // const [addQuestionId, setQuestionId] = useState('')
   const [addCourseId, setCourseId] = useState('')
@@ -33,7 +43,7 @@ const AdminAssessmentQ = () => {
 
 
   //edit
-  const [editQuestionId,seteditQuestionId] = useState('')
+  const [editQuestionId, seteditQuestionId] = useState('')
   const [editCourseId, seteditCourseId] = useState('')
   const [editCourseName, seteditCourseName] = useState('')
   const [editQuestionText, seteditQuestionText] = useState('')
@@ -110,7 +120,8 @@ const AdminAssessmentQ = () => {
   //handle add code
 
   const openpopup = () => {
-    handleShow();
+    // handleShow();
+    handleAddShow();
   }
 
   const handleSave = () => {
@@ -136,7 +147,8 @@ const AdminAssessmentQ = () => {
       .then((response) => {
         if (response.status === 200) {
           // console.log(response,"response");
-          handleClose();
+          // handleClose();
+          handleAddClose();
           clear();
           toast.success('Question has been added successfully');
           handleSearch();
@@ -186,9 +198,10 @@ const AdminAssessmentQ = () => {
 
   const handleEdit = (id, accessToken) => {
     alert(id);
-    handleShow();
+    // handleShow();
+    handleEditShow();
     //https://localhost:7244/api/AssessmentQuestion?questionid=19
-    axios.get(`https://localhost:7244/api/AssessmentQuestion?questionid=${id}`,{ headers: { 'Authorization': `Bearer ${accessToken}` } })
+    axios.get(`https://localhost:7244/api/AssessmentQuestion?questionid=${id}`, { headers: { 'Authorization': `Bearer ${accessToken}` } })
       .then((result) => {
         const assqData = result.data[0];
         seteditQuestionId(id);
@@ -200,13 +213,13 @@ const AdminAssessmentQ = () => {
         seteditOptB(assqData.optB);
         seteditOptC(assqData.optC);
         seteditOptD(assqData.optD);
-        
+
         console.log(result.data[0], "resulssst");
 
       }).catch((error) => {
         console.log(error)
       });
-      console.log(result,"result");
+    // console.log(result, "result");
   };
 
   const handleUpdate = () => {
@@ -217,7 +230,7 @@ const AdminAssessmentQ = () => {
 
     const url = `https://localhost:7244/api/AssessmentQuestion`;
     const data = {
-      QuestionId:editQuestionId,
+      QuestionId: editQuestionId,
       CourseId: editCourseId,
       CourseName: editCourseName,
       QuestionText: editQuestionText,
@@ -226,9 +239,9 @@ const AdminAssessmentQ = () => {
       OptB: editOptB,
       OptC: editOptC,
       OptD: editOptD
-   
+
     };
-    console.log(data,"data");
+    console.log(data, "data");
     const config = {
       headers: { 'Authorization': `Bearer ${accessToken}` }
     };
@@ -236,11 +249,12 @@ const AdminAssessmentQ = () => {
 
     axios.put(url, data, config)
       .then((response) => {
-        handleClose();
+        // handleClose();
+        handleEditClose();
         handleSearch();
         clear();
-      console.log(response,"response");
-      toast.success('Course has been updated successfully');
+        console.log(response, "response");
+        toast.success('Course has been updated successfully');
       })
       .catch((error) => {
         console.error('Error updating course:', error);
@@ -295,7 +309,7 @@ const AdminAssessmentQ = () => {
                   <td>{item.optC}</td>
                   <td>{item.optD}</td>
                   <td>
-                    <Button variant="outline-primary" onClick={() => handleEdit(item.questionId,accessToken)}>Edit</Button>{' '}
+                    <Button variant="outline-primary" onClick={() => handleEdit(item.questionId, accessToken)}>Edit</Button>{' '}
                     <Button variant="outline-danger" onClick={() => handleDelete(item.questionId)}>Delete</Button>
                   </td>
                 </tr>
@@ -312,7 +326,7 @@ const AdminAssessmentQ = () => {
 
         {/* model for add questions */}
 
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={showAddModal} onHide={handleAddClose}>
           <Modal.Header closeButton>
             <Modal.Title>Add Assessment Question</Modal.Title>
           </Modal.Header>
@@ -320,55 +334,55 @@ const AdminAssessmentQ = () => {
             <Row>
               <Col>
                 <input type='text' className='form-control' value={addCourseId}
-                  onChange={(e) => setCourseId(e.target.value)} placeholder='Enter Course Id'></input>
+                  onChange={(e) => setCourseId(e.target.value)} placeholder='Add Course Id'></input>
               </Col>
             </Row><br />
-            <Row>
+            {/* <Row>
               <Col>
                 <input type='text' className='form-control' value={addCourseName}
                   onChange={(e) => setCourseName(e.target.value)} placeholder='Enter Course Name'></input>
               </Col>
-            </Row><br />
+            </Row><br /> */}
             <Row>
               <Col>
                 <input type='text' className='form-control' value={addQuestionText}
-                  onChange={(e) => setQuestionText(e.target.value)} placeholder='Enter Question Text'></input>
+                  onChange={(e) => setQuestionText(e.target.value)} placeholder='Add Question Text'></input>
               </Col>
             </Row><br />
             <Row>
               <Col>
                 <input type='text' className='form-control' value={addCorrectAns}
-                  onChange={(e) => setCorrectAns(e.target.value)} placeholder='Enter Correct Ans'></input>
+                  onChange={(e) => setCorrectAns(e.target.value)} placeholder='Add Correct Ans'></input>
               </Col>
             </Row><br />
             <Row>
               <Col>
                 <input type='text' className='form-control' value={addOptA}
-                  onChange={(e) => setOptA(e.target.value)} placeholder='Enter Opt-A'></input>
+                  onChange={(e) => setOptA(e.target.value)} placeholder='Add Opt-A'></input>
               </Col>
             </Row><br />
             <Row>
               <Col>
                 <input type='text' className='form-control' value={addOptB}
-                  onChange={(e) => setOptB(e.target.value)} placeholder='Enter Opt-B'></input>
+                  onChange={(e) => setOptB(e.target.value)} placeholder='Add Opt-B'></input>
               </Col>
             </Row><br />
             <Row>
               <Col>
                 <input type='text' className='form-control' value={addOptC}
-                  onChange={(e) => setOptC(e.target.value)} placeholder='Enter Opt-C'></input>
+                  onChange={(e) => setOptC(e.target.value)} placeholder='Add Opt-C'></input>
               </Col>
             </Row><br />
             <Row>
               <Col>
                 <input type='text' className='form-control' value={addOptD}
-                  onChange={(e) => setOptD(e.target.value)} placeholder='Enter Opt-D'></input>
+                  onChange={(e) => setOptD(e.target.value)} placeholder='Add Opt-D'></input>
               </Col>
             </Row><br />
             <br />
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={handleAddClose}>
               Close
             </Button>
             <Button variant="primary" onClick={handleSave}>
@@ -380,68 +394,68 @@ const AdminAssessmentQ = () => {
 
         {/* model for edit/update questions */}
 
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={showEditModal} onHide={handleEditClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Add Assessment Question</Modal.Title>
+            <Modal.Title>Edit Assessment Question</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Row>
               <Col>
-              {/* {console.log(addCourseId, "addCourseId")} */}
+                {/* {console.log(addCourseId, "addCourseId")} */}
                 <input type='text' className='form-control' value={editCourseId}
-                  onChange={(e) => seteditCourseId(e.target.value)} placeholder='Enter Course Id'></input>
+                  onChange={(e) => seteditCourseId(e.target.value)} placeholder='Edit Course Id'></input>
               </Col>
             </Row><br />
-            <Row>
+            {/* <Row>
               <Col>
                 <input type='text' className='form-control' value={editCourseName}
-                  onChange={(e) => seteditCourseName(e.target.value)} placeholder='Enter Course Name'></input>
+                  onChange={(e) => seteditCourseName(e.target.value)} placeholder='Edit Course Name'></input>
               </Col>
-            </Row><br />
+            </Row><br /> */}
             <Row>
               <Col>
                 <input type='text' className='form-control' value={editQuestionText}
-                  onChange={(e) => seteditQuestionText(e.target.value)} placeholder='Enter Question Text'></input>
+                  onChange={(e) => seteditQuestionText(e.target.value)} placeholder='Edit Question Text'></input>
               </Col>
             </Row><br />
             <Row>
               <Col>
                 <input type='text' className='form-control' value={editCorrectAns}
-                  onChange={(e) => seteditCorrectAns(e.target.value)} placeholder='Enter Correct Ans'></input>
+                  onChange={(e) => seteditCorrectAns(e.target.value)} placeholder='Edit Correct Ans'></input>
               </Col>
             </Row><br />
             <Row>
               <Col>
                 <input type='text' className='form-control' value={editOptA}
-                  onChange={(e) => seteditOptA(e.target.value)} placeholder='Enter Opt-A'></input>
+                  onChange={(e) => seteditOptA(e.target.value)} placeholder='Edit Opt-A'></input>
               </Col>
             </Row><br />
             <Row>
               <Col>
                 <input type='text' className='form-control' value={editOptB}
-                  onChange={(e) => seteditOptB(e.target.value)} placeholder='Enter Opt-B'></input>
+                  onChange={(e) => seteditOptB(e.target.value)} placeholder='Edit Opt-B'></input>
               </Col>
             </Row><br />
             <Row>
               <Col>
                 <input type='text' className='form-control' value={editOptC}
-                  onChange={(e) => seteditOptC(e.target.value)} placeholder='Enter Opt-C'></input>
+                  onChange={(e) => seteditOptC(e.target.value)} placeholder='Edit Opt-C'></input>
               </Col>
             </Row><br />
             <Row>
               <Col>
                 <input type='text' className='form-control' value={editOptD}
-                  onChange={(e) => seteditOptD(e.target.value)} placeholder='Enter Opt-D'></input>
+                  onChange={(e) => seteditOptD(e.target.value)} placeholder='Edit Opt-D'></input>
               </Col>
             </Row><br />
             <br />
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={handleEditClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleSave}>
-              Add Question
+            <Button variant="primary" onClick={handleUpdate}>
+              Edit Question
             </Button>
           </Modal.Footer>
         </Modal>
