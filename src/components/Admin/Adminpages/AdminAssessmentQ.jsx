@@ -14,12 +14,9 @@ import Container from 'react-bootstrap/Container';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { accessToken } from '../../../Constant'; // Import the access token
+
 const AdminAssessmentQ = () => {
-
-  // const [show, setShow] = useState(false);
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
 
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -30,7 +27,6 @@ const AdminAssessmentQ = () => {
   const handleEditClose = () => setShowEditModal(false);
   const handleEditShow = () => setShowEditModal(true);
 
-
   // const [addQuestionId, setQuestionId] = useState('')
   const [addCourseId, setCourseId] = useState('')
   const [addCourseName, setCourseName] = useState('')
@@ -40,7 +36,6 @@ const AdminAssessmentQ = () => {
   const [addOptB, setOptB] = useState('')
   const [addOptC, setOptC] = useState('')
   const [addOptD, setOptD] = useState('')
-
 
   //edit
   const [editQuestionId, seteditQuestionId] = useState('')
@@ -53,41 +48,10 @@ const AdminAssessmentQ = () => {
   const [editOptC, seteditOptC] = useState('')
   const [editOptD, seteditOptD] = useState('')
 
-
-
-  // const [editCourseId, seteditCourseId] = useState('')
-  // const [editCourseName, setediteCourseName] = useState('')
-  // const [editCourseDesc, seteditCourseDesc] = useState('')
-
-  // const [data, setData] = useState([]);
-
-  // useEffect(() => {
-
-  //   handleSearch();
-  //   setData(userdata)
-  //   // console.log(getData, "getdata");
-  // }, [])
-
-  // const getData = (cid,accessToken) => {
-  //   const url = `https://localhost:7244/api/AssessmentQuestion/${cid}`;
-  //   axios.get(url, { headers: { 'Authorization': `Bearer ${accessToken}` } })
-  //     .then((result) => {
-  //       setData(result.data)
-  //     }).catch((error) => {
-  //       console.log(error)
-  //     })
-  //   console.log(data, "result");
-  // }
-
-  //  const handleSearch = (cid,accessToken) =>{
-
-  //  }
-
-
   const [data, setData] = useState([]);
 
   const [searchCourseName, setsearchCourseName] = useState('');
-  const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFkbWluQGdtYWlsLmNvbSIsImV4cCI6MTcxMTEwNjU5NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo3MjQ0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo3MjQ0In0.7X47gTB0AAt92RW382TV_hL2PTfTf5K41RgMj1v1tQY'
+  // const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFkbWluQGdtYWlsLmNvbSIsImV4cCI6MTcxMTEwNjU5NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo3MjQ0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo3MjQ0In0.7X47gTB0AAt92RW382TV_hL2PTfTf5K41RgMj1v1tQY'
 
   useEffect(() => {
     handleSearch();
@@ -536,3 +500,10 @@ export default AdminAssessmentQ;
 
 
 
+// {
+//   "courseName": "DOTNET",
+//   "moduleName": "Loops",
+//   "content": "intro of Loops",
+//   "courseId": 19,
+//   "moduleId": 3
+// }
