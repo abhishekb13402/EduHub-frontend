@@ -34,30 +34,30 @@ const AdminUserAPI = () => {
     const [editeuemail, setediteuemail] = useState('')
 
 
-    const userdata = [
-        {
-            Id: 1,
-            UserName: 'Om',
-            UserPassword: 'om123',
-            FullName: 'Om Bhatt',
-            UserEmail: 'omb@gmail.com'
-        },
-        {
-            Id: 2,
-            UserName: 'vv',
-            UserPassword: 'omvvv123',
-            FullName: 'Om Bhdsatt',
-            UserEmail: 'omb@dsd.com'
-        },
-        {
-            Id: 3,
-            UserName: 'Orttm',
-            UserPassword: 'om123',
-            FullName: 'Om ddddd',
-            UserEmail: 'omb@gmtreail.com'
-        }
+    // const userdata = [
+    //     {
+    //         Id: 1,
+    //         UserName: 'Om',
+    //         UserPassword: 'om123',
+    //         FullName: 'Om Bhatt',
+    //         UserEmail: 'omb@gmail.com'
+    //     },
+    //     {
+    //         Id: 2,
+    //         UserName: 'vv',
+    //         UserPassword: 'omvvv123',
+    //         FullName: 'Om Bhdsatt',
+    //         UserEmail: 'omb@dsd.com'
+    //     },
+    //     {
+    //         Id: 3,
+    //         UserName: 'Orttm',
+    //         UserPassword: 'om123',
+    //         FullName: 'Om ddddd',
+    //         UserEmail: 'omb@gmtreail.com'
+    //     }
 
-    ]
+    // ]
     const [data, setData] = useState([]);
     useEffect(() => {
         getData();
@@ -140,7 +140,7 @@ const AdminUserAPI = () => {
             });
     }
 
-    const handleSave = () => {
+    const handleSave = (accessToken) => {
         const url = 'https://localhost:7244/api/RegisterUser';
         const data = {
             userName: adduname,

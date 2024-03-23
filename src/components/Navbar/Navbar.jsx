@@ -1,4 +1,5 @@
-// import React from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 
 const Navbar = () => {
@@ -27,18 +28,21 @@ const Navbar = () => {
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#login">Login🔐</a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <form className="d-flex" role="search">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button className="btn btn-outline-success" type="submit">Search</button>
+                {/* <input className="form-control me-2" style={{ width: '600px' }} type="search" placeholder="Search Course By Course Name" aria-label="Search" /> */}
+                {/* <button className="btn btn-outline-success" type="submit">Search Courses</button> */}
+                {/* <Link to="/coursesDisplay" className="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" style={{ fontSize: '1.2em', fontWeight: 'bold', color: 'blue' }}>Search Courses 🔍</Link>
+
               </form>
-            </li>
+            </li>  */}
             {/* <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/admin">Admin🔐</a>
             </li> */}
-            
-
           </ul>
+          <div className="ml-auto">
+          <Link to="/coursesDisplay" className="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" style={{ fontSize: '1.2em', fontWeight: 'bold', color: 'blue' }}>Search Courses 🔍</Link>
+          </div>
 
         </div>
       </div>
