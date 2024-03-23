@@ -11,7 +11,7 @@ const About = () => {
             </p>
             <p>
                 At EduHub, we strive to break down barriers to learning, making education accessible to everyone.
-                Our user-friendly interface, coupled with a strong backend powered by ASP.NET, ensures a seamless
+                Our user-friendly interface, coupled with a backend powered by ASP.NET, ensures a seamless
                 experience for both learners and administrators. Explore a variety of courses, enroll in your chosen
                 subjects, and embark on a personalized learning adventure with EduHub.
             </p>
