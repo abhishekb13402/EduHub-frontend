@@ -26,15 +26,15 @@ const AdminNav = () => {
     const handleEnrollmentClick = () => {
         setActiveComponent('Enrollment');
     };
-    const handleAssQClick = () => {
-        setActiveComponent('AssessmentQuestion');
-    };
-    const handleResultClick = () => {
-        setActiveComponent('Result');
-    };
-    const handleCertificateClick = () => {
-        setActiveComponent('Certificate');
-    };
+    // const handleAssQClick = () => {
+    //     setActiveComponent('AssessmentQuestion');
+    // };
+    // const handleResultClick = () => {
+    //     setActiveComponent('Result');
+    // };
+    // const handleCertificateClick = () => {
+    //     setActiveComponent('Certificate');
+    // };
 
     const renderComponent = () => {
         switch (activeComponent) {
@@ -46,12 +46,12 @@ const AdminNav = () => {
                 return <AdminModule />
             case 'Enrollment':
                 return <AdminEnrollment />;
-            case 'AssessmentQuestion':
-                return <AdminAssessmentQ />;
-            case 'Result':
-                return <AdminResult />;
-            case 'Certificate':
-                return <AdminCertificate />;
+            // case 'AssessmentQuestion':
+            //     return <AdminAssessmentQ />;
+            // case 'Result':
+            //     return <AdminResult />;
+            // case 'Certificate':
+            //     return <AdminCertificate />;
             default:
                 return null;
         }
@@ -162,7 +162,8 @@ const AdminNav = () => {
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={handleEnrollmentClick}>Enrollment</a>
                             </li>
-                            <li className="nav-item">
+                    
+                            {/* <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={handleAssQClick}>Assessment Question</a>
                             </li>
                             <li className="nav-item">
@@ -170,7 +171,7 @@ const AdminNav = () => {
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={handleCertificateClick}>Certificate</a>
-                            </li>
+                            </li> */}
                             {/* <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={handleAdminLogout}>Logout</a>
                             </li> */}
