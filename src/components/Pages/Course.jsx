@@ -38,7 +38,7 @@ const Course = () => {
                                     <div className="card-content">
                                         <h1>{course.courseName}</h1>
                                         <p>{course.description}</p>
-                                        <button type="button" className="btn btn-outline-primary btn-sm">View Details</button>
+                                        <Link to={`/courseScreen/${course.courseId}`} className="btn btn-outline-primary btn-sm">View Details</Link>
                                         {/* <!-- <a href="" className="card-button">Github Link</a> --> */}
                                     </div>
                                 </div>
