@@ -288,8 +288,8 @@ const AdminModule = () => {
             </Row><br />
             <Row>
               <Col>
-                <input type='text' className='form-control' value={addContent}
-                  onChange={(e) => setContent(e.target.value)} placeholder='Add Content'></input>
+                <textarea type='text' className='form-control' value={addContent}
+                  onChange={(e) => setContent(e.target.value)} placeholder='Add Content'></textarea>
               </Col>
             </Row><br />
 
@@ -328,13 +328,13 @@ const AdminModule = () => {
             <Row>
               <Col>
                 <input type='text' className='form-control' value={editModuleName}
-                  onChange={(e) => seteditModuleName(e.target.value)} placeholder='Edit Question Text'></input>
+                  onChange={(e) => seteditModuleName(e.target.value)} placeholder='Edit Module Name'></input>
               </Col>
             </Row><br />
             <Row>
               <Col>
-                <input type='text' className='form-control' value={editContent}
-                  onChange={(e) => seteditContent(e.target.value)} placeholder='Edit Correct Ans'></input>
+                <textarea type='text' className='form-control' value={editContent}
+                  onChange={(e) => seteditContent(e.target.value)} placeholder='Edit Module Content'></textarea>
               </Col>
             </Row><br /><br />
             <br />

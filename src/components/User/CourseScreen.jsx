@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../Navbar/Navbar';
 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -79,7 +79,8 @@ const CourseScreen = () => {
         </div>
         <div className="courseenrollbtn d-flex justify-content-center mt-3">
           {/* <Button variant="outline-primary" onClick={handleEnroll(course.courseId)}>Enroll</Button> */}
-          <Button variant="outline-primary" >Enroll</Button>
+          {/* <Button variant="outline-primary" >Start Course</Button> */}
+          <Link to={`/modules/${course.courseName}`}  className="btn btn-outline-primary btn-sm" variant="outline-primary" >Start Course</Link>
         </div>
       </div>
     </>
