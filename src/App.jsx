@@ -29,7 +29,7 @@ const App = () => {
             {/* <Route path='/adminuser' element={<AdminUser />} /> */}
             <Route path='/coursesDisplay' element={<CoursesDisplay />} />
             <Route path='/courseScreen/:courseId' element={<CourseScreen />} />
-            <Route path='/modules' element={<Modules />} />
+            <Route path='/modules/:courseName' element={<Modules />} />
             {/* <Route path='/assessmentScreen' element={<AssessmentScreen />} /> */}
             {/* <Route path='/assessmentQuiz' element={<AssessmentQuiz />} /> */}
             <Route path='/test' element={<Test />} />
