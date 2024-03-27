@@ -14,18 +14,18 @@ import AdminUserAPI from './Adminpages/AdminUserAPI';
 const AdminNav = () => {
     const [activeComponent, setActiveComponent] = useState(null);
 
-    const handleUserClick = () => {
-        setActiveComponent('User');
-    };
+    // const handleUserClick = () => {
+    //     setActiveComponent('User');
+    // };
     const handleCourseClick = () => {
         setActiveComponent('Course');
     };
     const handleModuleClick = () => {
         setActiveComponent('Module');
     };
-    const handleEnrollmentClick = () => {
-        setActiveComponent('Enrollment');
-    };
+    // const handleEnrollmentClick = () => {
+    //     setActiveComponent('Enrollment');
+    // };
     // const handleAssQClick = () => {
     //     setActiveComponent('AssessmentQuestion');
     // };
@@ -38,14 +38,14 @@ const AdminNav = () => {
 
     const renderComponent = () => {
         switch (activeComponent) {
-            case 'User':
-                return <AdminUserAPI />;
+            // case 'User':
+            //     return <AdminUserAPI />;
             case 'Course':
                 return <AdminCourse />;
             case 'Module':
                 return <AdminModule />
-            case 'Enrollment':
-                return <AdminEnrollment />;
+            // case 'Enrollment':
+            //     return <AdminEnrollment />;
             // case 'AssessmentQuestion':
             //     return <AdminAssessmentQ />;
             // case 'Result':
@@ -144,15 +144,15 @@ const AdminNav = () => {
 
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/admin">Admin</a>
+                    <a className="navbar-brand" href="/admin">EduHub Admin</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav">
-                            <li className="nav-item" >
+                            {/* <li className="nav-item" >
                                 <a className="nav-link active" aria-current="page" href="#" onClick={handleUserClick}>User</a>
-                            </li>
+                            </li> */}
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={handleCourseClick}>Course</a>
                             </li>
@@ -160,8 +160,11 @@ const AdminNav = () => {
                                 <a className="nav-link" href="#" onClick={handleModuleClick}>Module</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#" onClick={handleEnrollmentClick}>Enrollment</a>
+                                <a className="nav-link" href="#" >Contact Us</a>
                             </li>
+                            {/* <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={handleEnrollmentClick}>Enrollment</a>
+                            </li> */}
                     
                             {/* <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={handleAssQClick}>Assessment Question</a>

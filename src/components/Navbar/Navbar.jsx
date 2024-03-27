@@ -26,8 +26,11 @@ const Navbar = () => {
               <a className="nav-link active" aria-current="page" href="#course">Courses📚</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#login">Login🔐</a>
+              <a className="nav-link active" aria-current="page" href="#contactus">Contact Us🏡</a>
             </li>
+            {/* <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="#login">Login🔐</a>
+            </li> */}
             {/* <li className="nav-item">
               <form className="d-flex" role="search">
                 {/* <input className="form-control me-2" style={{ width: '600px' }} type="search" placeholder="Search Course By Course Name" aria-label="Search" /> */}
