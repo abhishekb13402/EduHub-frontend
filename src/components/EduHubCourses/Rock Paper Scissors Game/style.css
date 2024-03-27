@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-top: 50px;
+  }
+  
+  .choices {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .choices button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #result {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+  
