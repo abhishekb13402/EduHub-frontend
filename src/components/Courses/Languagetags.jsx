@@ -8,6 +8,7 @@ const Languagetags = () => {
 
                 <span className="badge rounded-pill text-bg-light">C-sharp</span>
                 <span className="badge rounded-pill text-bg-light">JavaScript</span>
+                <span className="badge rounded-pill text-bg-light">JS Project</span>
                 <span className="badge rounded-pill text-bg-light">Dot Net</span>
                 <span className="badge rounded-pill text-bg-light">JAVA</span>
                 <span className="badge rounded-pill text-bg-light">HTML</span>

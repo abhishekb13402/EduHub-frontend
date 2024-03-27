@@ -57,6 +57,13 @@ const CoursesDisplay = () => {
   //   setSearchTerm('');
   // }
 
+  const truncateDescription = (description) => {
+    const words = description.split(' ');
+    const truncatedDescription = words.slice(0, 3).join(' ');
+    return truncatedDescription;
+  }
+  
+
   return (
     <>
       <Navbar />
@@ -84,7 +91,7 @@ const CoursesDisplay = () => {
                   <img src={getRandomImageUrl()} alt={course.courseName} className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title">{course.courseName}</h5>
-                    <p className="card-text">{course.description}</p>
+                    <p className="card-text">{truncateDescription(course.description)}</p>
                     <Link to={`/courseScreen/${course.courseId}`} className="btn btn-outline-primary btn-sm">View Details</Link>
                    </div>
                 </div>
