@@ -7,8 +7,12 @@ import { useState } from 'react';
 import { accessToken } from '../../Constant'; // Import the access token
 import axios from 'axios';
 import Navbar from '../Navbar/Navbar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const Modules = () => {
+  let navigate = useNavigate();
 
   const { courseName } = useParams(); // Get the coursename from URL parameter
   const [course, setCourse] = useState(null);
@@ -29,34 +33,22 @@ const Modules = () => {
     return <div>module not found</div>;
   }
 
-  // const htmlCode = `<!DOCTYPE html>
-  // <html lang="en">
-  // <head>
-  //   <title>Simple Form</title>
-  // </head>
-  // <body>
-  //   <h2>Simple Form</h2>
-  //   <form action="#" method="POST">
-  //     <label for="name">Name:</label><br>
-  //     <input type="text" id="name" name="name"><br><br>
-  //     <label for="email">Email:</label><br>
-  //     <input type="email" id="email" name="email"><br><br>
-  //     <label for="message">Message:</label><br>
-  //     <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
-  //     <input type="submit" value="Submit">
-  //   </form>
-  // </body>
-  // </html>`;
+  const CourseSubmit = () => {
+    toast.success('Party...');
+    setTimeout( () => {
+      navigate('/coursesDisplay');
+    },5000);
+  }
 
   return (
     <>
       <Navbar />
       <br /><br /><br />
       <div className="container mt-5">
-
         <div className="coursename">
           <h2>{courseName}</h2>
         </div>
+        <ToastContainer />
 
         <Accordion>
           {course.map((course, index) => (
@@ -70,7 +62,7 @@ const Modules = () => {
         </Accordion>
 
         <div className="coursesubmitbtn d-flex justify-content-end mt-3">
-          <Button variant="outline-primary">Course Submit</Button>{' '}
+          <Button variant="outline-primary" onClick={CourseSubmit}>Course Submit</Button>{' '}
         </div>
       </div>
     </>
