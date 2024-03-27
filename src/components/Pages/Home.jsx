@@ -4,6 +4,7 @@ import LoginSignup from '../LoginSignup/LoginSignup';
 import Navbar from '../Navbar/Navbar';
 import About from './About';
 import Carousel from './Carousel';
+import Contactus from './Contactus';
 import Course from './Course';
 import Footer from './Footer';
 
@@ -37,7 +38,8 @@ const Home = () => {
 
             <About />
             <Course />
-            <LoginSignup />
+            {/* <LoginSignup /> */}
+            <Contactus/>
             <Footer />
 
         </>
