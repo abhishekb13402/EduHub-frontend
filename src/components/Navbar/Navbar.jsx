@@ -25,9 +25,9 @@ const Navbar = () => {
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#course">Courses📚</a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#contactus">Contact Us🏡</a>
-            </li>
+            </li> */}
             {/* <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#login">Login🔐</a>
             </li> */}

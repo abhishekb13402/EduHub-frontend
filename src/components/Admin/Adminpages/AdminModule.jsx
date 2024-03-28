@@ -189,7 +189,7 @@ const AdminModule = () => {
       })
         .then((result) => {
           if (result.status === 200) {
-            toast.success('Course Deleted Successfully');
+            toast.success('Module Deleted Successfully');
             handleSearch();
           }
         }).catch((error) => {

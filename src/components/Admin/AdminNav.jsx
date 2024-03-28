@@ -159,9 +159,9 @@ const AdminNav = () => {
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={handleModuleClick}>Module</a>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <a className="nav-link" href="#" >Contact Us</a>
-                            </li>
+                            </li> */}
                             {/* <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={handleEnrollmentClick}>Enrollment</a>
                             </li> */}
